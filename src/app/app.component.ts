@@ -10,4 +10,10 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'project-class';
+
+  ngOnInit(){
+    localStorage.setItem("login", "ray@gmail.com");
+    localStorage.setItem("password", "123456");
+    localStorage.setItem("permition", "doutor");
+  }
 }
