@@ -1,2 +1,54 @@
-<p>create works!</p>
-<input type="text" [(ngModel)]="motivo" placeholder="Digite o motivo">
+<div class="consulta-cadastro-container">
+  <h2>Cadastro de Consulta</h2>
+  <form [formGroup]="consultaForm" (ngSubmit)="cadastrar()">
+    <div class="form-group">
+      <label for="paciente">Nome do paciente:</label>
+      <input type="text" id="paciente" formControlName="pacienteNome" />
+    </div>
+    <div class="form-group">
+      <label for="paciente">Idade do paciente:</label>
+      <input type="text" id="paciente" formControlName="pacienteIdade" />
+    </div>
+    <div class="form-group">
+      <label for="paciente">Nome do medico:</label>
+      <input type="text" id="paciente" formControlName="medico" />
+    </div>
+    <div class="form-group">
+      <label for="data">Data:</label>
+      <input type="date" id="data" formControlName="data" />
+    </div>
+    <div class="form-group">
+      <label for="hora">Hora:</label>
+      <input type="time" id="hora" formControlName="hora" />
+    </div>
+    <div class="form-group">
+      <label for="motivo">Motivo:</label>
+      <textarea id="motivo" formControlName="motivo"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="motivo">Alergias:</label>
+      <textarea id="motivo" formControlName="alergias"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="motivo">Observações:</label>
+      <textarea id="motivo" formControlName="obs"></textarea>
+    </div>
+
+    <!-- O bloco @defer (bloco abaixo) é um bloco de código que é executado após um
+    determinado tempo, mas somente porque o gatilho é o "on timer". Neste caso, o bloco @defer é executado após
+    3 segundos. 
+    
+    O bloco @placeholder é um bloco de código que é executado
+    enquanto o bloco @defer não é executado. Neste caso, o bloco @placeholder
+    exibe um loader enquanto o bloco @defer não é executado. 
+  
+    OBS: o bloco defer é mais recomendado o uso com componentes e não com tags html.
+    -->
+
+    @defer(on timer(3000)){
+      <app-button text="Criar Consulta" /> 
+    }@placeholder {
+      <div class="custom-loader"></div>
+    }
+  </form>
+</div>

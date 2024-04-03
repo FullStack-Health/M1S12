@@ -11,13 +11,12 @@ import { AuthService } from '../services/auth.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  login: string ="";
-  password: string ="";
-  
+  loginObj: any = { username: "", password: ""};
+
   constructor(private router: Router, private authService: AuthService){}
 
-  verifyLogin(){
-    this.authService.login(this.login, this.password);
+  login(){
+    this.authService.login(this.loginObj.username, this.loginObj.password);
     this.router.navigate(["home"]);
   }
 }
